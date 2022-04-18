@@ -1,0 +1,38 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+main page
+{% endblock title %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Logo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Rank</th>
+            <th scope="col">Price</th>
+            <th scope="col">Mark_cap</th>
+            <th scope="col">Volume</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if data %}
+            {% for obj in data %}
+                <tr>
+                    <th><img src="{{ obj.image}}" alt="logo" height="70"></th>
+                    <th class="align-middle">{{ obj.name }}</th>
+                    <th class="align-middle">{{ obj.market_cap_rank }}</th>
+                    <th class="align-middle">{{ obj.current_price }}</th>
+                    <th class="align-middle">{{ obj.market_cap }}</th>
+                    <th class="align-middle">{{ obj.total_volume }}</th>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <h3>Nothing here .....</h3>
+        {% endif %}
+    </tbody>
+
+</table>
+{% endblock content %}
